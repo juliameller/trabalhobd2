@@ -32,6 +32,7 @@ pedido_item
 
 pagamento
 - id
+- id_pedido
 - total
 - forma_pagamento
 
