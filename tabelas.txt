@@ -1,0 +1,45 @@
+Sistema de atendimento doceria
+
+cliente 
+- id
+- nome
+- telefone
+- cpf
+- email
+
+produto //cardapio
+- id
+- nome
+- preço
+
+mesa
+- id
+- numero
+- capacidade
+
+pedido 
+- id
+- id_cliente
+- id_mesa
+- data
+
+pedido_item
+- id
+- id_produto
+- id_pedido
+- valor
+- quantidade
+
+pagamento
+- id
+- total
+- forma_pagamento
+
+formas_pagamento
+- id
+- nome
+
+produzido
+- id
+- id_produto
+- data
