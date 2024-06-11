@@ -42,7 +42,8 @@ CREATE TABLE [pagamento] (
   [id_pagamento] integer PRIMARY KEY NOT NULL IDENTITY(1, 1),
   [id_pedido] integer,
   [total] numeric(13,2) NOT NULL,
-  [id_forma_pagamento] integer
+  [id_forma_pagamento] integer,
+  [status_pagamento] bit NOT NULL -- pago = 1 ou em aberto = 0
 )
 GO
 
