@@ -61,23 +61,23 @@ CREATE TABLE [produzido] (
 )
 GO
 
-ALTER TABLE [pedido] ADD FOREIGN KEY ([id_cliente]) REFERENCES [cliente] ([id_cliente])
+ALTER TABLE [pedido] ADD CONSTRAINT fk_pedido_cliente FOREIGN KEY ([id_cliente]) REFERENCES [cliente] ([id_cliente])
 GO
 
-ALTER TABLE [pedido] ADD FOREIGN KEY ([id_mesa]) REFERENCES [mesa] ([id_mesa])
+ALTER TABLE [pedido] ADD CONSTRAINT fk_pedido_mesa FOREIGN KEY ([id_mesa]) REFERENCES [mesa] ([id_mesa])
 GO
 
-ALTER TABLE [pedido_item] ADD FOREIGN KEY ([id_produto]) REFERENCES [produto] ([id_produto])
+ALTER TABLE [pedido_item] ADD CONSTRAINT fk_pedido_item_produto FOREIGN KEY ([id_produto]) REFERENCES [produto] ([id_produto])
 GO
 
-ALTER TABLE [pedido_item] ADD FOREIGN KEY ([id_pedido]) REFERENCES [pedido] ([id_pedido])
+ALTER TABLE [pedido_item] ADD CONSTRAINT fk_pedido_item_pedido FOREIGN KEY ([id_pedido]) REFERENCES [pedido] ([id_pedido])
 GO
 
-ALTER TABLE [pagamento] ADD FOREIGN KEY ([id_pedido]) REFERENCES [pedido] ([id_pedido])
+ALTER TABLE [pagamento] ADD CONSTRAINT fk_pagamento_pedido FOREIGN KEY ([id_pedido]) REFERENCES [pedido] ([id_pedido])
 GO
 
-ALTER TABLE [pagamento] ADD FOREIGN KEY ([id_forma_pagamento]) REFERENCES [forma_de_pagamento] ([id_forma_pagamento])
+ALTER TABLE [pagamento] ADD CONSTRAINT fk_pagamento_forma_pagamento FOREIGN KEY ([id_forma_pagamento]) REFERENCES [forma_de_pagamento] ([id_forma_pagamento])
 GO
 
-ALTER TABLE [produzido] ADD FOREIGN KEY ([id_produto]) REFERENCES [produto] ([id_produto])
+ALTER TABLE [produzido] ADD CONSTRAINT fk_produzido_produto FOREIGN KEY ([id_produto]) REFERENCES [produto] ([id_produto])
 GO
