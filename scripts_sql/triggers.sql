@@ -7,14 +7,17 @@ BEGIN
     DECLARE 
     @count_pedido INT,
     @total_atualizado DECIMAL(10,2),
+    @id_pedido INT,
+	@valor DECIMAL(10,2),
+	@quantidade INT
     
     SELECT 
-    @id_pedido = id_pedido 
+    @id_pedido = id_pedido, @valor = valor, @quantidade = quantidade 
     FROM inserted
 
-    -- Calcular o novo total do pedido
-    SELECT @total_atualizado = (SELECT SUM(valor * quantidade) FROM pedido_item WHERE id_pedido = @id_pedido);
-
+    -- Calcular o total do novo pedido
+    SELECT @total_atualizado = @valor * @quantidade
+		
     -- Verificar se o pagamento já existe para o pedido
     SELECT @count_pedido = COUNT(id_pedido)
     FROM pagamento
@@ -24,7 +27,7 @@ BEGIN
     IF @count_pedido > 0
     	BEGIN
         UPDATE pagamento
-        SET total = @total_atualizado
+        SET total = @total_atualizado + total
         WHERE id_pedido = @id_pedido;
        	END 
     -- Se não existir, inserir um novo registro de pagamento
