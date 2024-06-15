@@ -1,10 +1,4 @@
 -- Registrar Produção Diária
-CREATE PROCEDURE registrar_producao_diaria(@produto_id INT, @data DATE, @quantidade INT) AS 
-BEGIN
-    INSERT INTO Produzido (id_produto, data, quantidade)
-    VALUES (@produto_id, @data, @quantidade);
-END;
-
 CREATE OR ALTER PROCEDURE registrar_producao_diaria(@id_produto INT, @data DATE, @quantidade INT) AS 
 BEGIN
     DECLARE @producao_existente INT;
