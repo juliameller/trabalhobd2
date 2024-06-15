@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "2dd439b6-dc5e-47b7-a3fc-662fa866c3f5",
+		"name": "banco de dados 2 doceria",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26808341"
+	},
+	"item": [
+		{
+			"name": "cliente",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cliente/:id-cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						":id-cliente"
+					],
+					"variable": [
+						{
+							"key": "id-cliente",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cliente all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cliente?pagina=0&qtde=10&sort=telefone",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					],
+					"query": [
+						{
+							"key": "pagina",
+							"value": "0"
+						},
+						{
+							"key": "qtde",
+							"value": "10"
+						},
+						{
+							"key": "sort",
+							"value": "telefone"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"fulado\",\r\n    \"telefone\": \"48123451234\",\r\n    \"cpf\": \"11111111111\",\r\n    \"email\": \"email@email.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cliente",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"fulado\",\r\n    \"telefone\": \"48123451234\",\r\n    \"cpf\": \"11111111111\",\r\n    \"email\": \"email@email.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cliente/:id-cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						":id-cliente"
+					],
+					"variable": [
+						{
+							"key": "id-cliente",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cliente",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cliente/:id-cliente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cliente",
+						":id-cliente"
+					],
+					"variable": [
+						{
+							"key": "id-cliente",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
