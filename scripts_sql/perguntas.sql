@@ -1,10 +1,10 @@
--- Perguntas de negócio:
+-- Perguntas de negï¿½cio:
 
---1. Qual o ticket médio do dia 19/06/2024 a 23/06/2024 ? 
+--1. Qual o ticket mï¿½dio do dia 19/06/2024 a 23/06/2024 ? 
 
 SELECT dbo.calcular_ticket_medio('2024-06-19', '2024-06-23') AS TicketMedioJunho;
 
---2. Quais foram os dias e a quantidade de produtos do mês de junho 2024 que tiveram sobra na produção? 
+--2. Quais foram os dias e a quantidade de produtos do mï¿½s de junho 2024 que tiveram sobra na produï¿½ï¿½o? 
 
 WITH vendas_por_dia AS (
     SELECT
@@ -40,10 +40,58 @@ WHERE sobra > 0
 ORDER BY id_produto;
 
 --3. Qual foi o produto mais consumido? e o menos consumido?
+WITH soma AS (
+	SELECT 
+		id_produto,
+		SUM(quantidade) AS qt
+	FROM pedido_item 
+	GROUP BY id_produto
+), ranqueado AS(
+	SELECT 
+		id_produto,
+		qt,
+		DENSE_RANK() OVER(ORDER BY qt) as rank_menos,
+		DENSE_RANK() OVER(ORDER BY qt desc) as rank_mais
+	FROM soma
+)
+SELECT 
+	ra.id_produto,
+	pr.nome_produto,
+	ra.qt AS quantidade_vendida,
+	CASE rank_mais 
+		WHEN 1 THEN 'Mais vendida'
+		ELSE 'Menos vendida'
+	END AS tipo
+FROM 
+	ranqueado ra
+INNER JOIN produto pr ON pr.id_produto = ra.id_produto 
+WHERE rank_menos = 1 or rank_mais = 1;
 
 --4. Qual a forma de pagamento mais utilizada? quantidade de pedidos que usaram essa forma, valor total?
+WITH total AS (
+    SELECT 
+        pa.id_forma_pagamento,
+        (
+            SELECT tp_pagamento 
+            FROM forma_de_pagamento 
+            WHERE id_forma_pagamento = pa.id_forma_pagamento
+        ) AS tp_forma_pagamento,
+        COUNT(*) AS qtde_pedidos,
+        SUM(pa.total) AS valor_total,
+        DENSE_RANK() OVER(ORDER BY COUNT(*) desc) as rank
+    FROM 
+        pagamento pa
+    GROUP BY id_forma_pagamento
+)
+SELECT 
+	id_forma_pagamento,
+	tp_forma_pagamento,
+	qtde_pedidos,
+	valor_total
+FROM total
+WHERE rank = 1;
 
---5. Qual a média de cada produto vendido desde o primeiro dia? 
+--5. Qual a mï¿½dia de cada produto vendido desde o primeiro dia? 
 
 WITH vendas_diarias AS (
     SELECT
