@@ -1,10 +1,10 @@
--- Perguntas de neg�cio:
+-- Perguntas de negócio:
 
---1. Qual o ticket m�dio do dia 19/06/2024 a 23/06/2024 ? 
+--1. Qual o ticket médio do dia 19/06/2024 a 23/06/2024 ? 
 
 SELECT dbo.calcular_ticket_medio('2024-06-19', '2024-06-23') AS TicketMedioJunho;
 
---2. Quais foram os dias e a quantidade de produtos do m�s de junho 2024 que tiveram sobra na produ��o? 
+--2. Quais foram os dias e a quantidade de produtos do mês de junho 2024 que tiveram sobra na produção? 
 
 WITH vendas_por_dia AS (
     SELECT
@@ -91,7 +91,7 @@ SELECT
 FROM total
 WHERE rank = 1;
 
---5. Qual a m�dia de cada produto vendido desde o primeiro dia? 
+--5. Qual a média de cada produto vendido desde o primeiro dia? 
 
 WITH vendas_diarias AS (
     SELECT
@@ -119,6 +119,3 @@ GROUP BY
     pr.nome_produto
 ORDER BY
     vd.id_produto;
-
-
-
