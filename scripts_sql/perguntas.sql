@@ -58,9 +58,9 @@ SELECT
 	ra.id_produto,
 	pr.nome_produto,
 	ra.qt AS quantidade_vendida,
-	CASE rank_mais 
-		WHEN 1 THEN 'Mais vendida'
-		ELSE 'Menos vendida'
+	CASE
+		WHEN ra.rank_mais = 1 THEN 'Mais vendida'
+		WHEN ra.rank_menos = 1 THEN 'Menos vendida'
 	END AS tipo
 FROM 
 	ranqueado ra
