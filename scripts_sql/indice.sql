@@ -1,8 +1,22 @@
--- Índices para a função de ticket médio
-CREATE INDEX idx_pedido_item_id_pedido2 ON pedido_item(id_pedido) INCLUDE(valor, quantidade);
+-- Remoção de Índices Existentes:
 
--- Índices para a consulta de sobra na produção
-CREATE INDEX idx_produzido_data ON produzido(data);
+DROP INDEX IF EXISTS idx_pagamento_id_pedido_status_pagamento ON pagamento 
+DROP INDEX IF EXISTS idx_pedido_id_pedido_dt_pedido ON pedido;
 
--- Índices adicionais para a função calcular_ticket_medio
+-- Criação de Índices:
+
 CREATE INDEX idx_pagamento_id_pedido_status_pagamento ON pagamento(id_pedido, status_pagamento) INCLUDE(total);
+CREATE INDEX idx_pedido_id_pedido_dt_pedido ON pedido(dt_pedido, id_pedido);
+
+-- Remoção de Índices Existentes:
+
+DROP INDEX IF EXISTS idx_pedido_item_id_produto ON pedido_item;
+DROP INDEX IF EXISTS idx_produto_id_produto ON produto;
+DROP INDEX IF EXISTS idx_produzido_data ON produzido;
+DROP INDEX IF EXISTS idx_produzido_id_produto ON produzido;
+
+-- Criação de Novos Índices:
+
+CREATE INDEX idx_pedido_item_id_pedido_id_produto ON pedido_item (id_pedido, id_produto) INCLUDE (quantidade);
+CREATE INDEX idx_produto ON produto (id_produto) INCLUDE (quantidade);
+CREATE INDEX idx_produzido_data ON produzido (id_produto, data) INCLUDE (quantidade);
