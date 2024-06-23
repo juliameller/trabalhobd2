@@ -1,5 +1,4 @@
-## Projeto Sistema de Atividades Especiais - GRUPO A
-
+## Projeto Sistema de Atividades Especiais - GRUPO C (Atendimento doceria)
 ### Integrantes
 Ana Beatriz Meller - @AnaBea07 <br>
 Daniela Cardoso - @DanielaMF <br>
@@ -15,7 +14,7 @@ Arquivo fonte: [Modelo Fisico](https://dbdiagram.io/d/Atividade_BD-650a4ab602bd1
 ![image](https://github.com/juliameller/trabalhobd2/blob/main/modelo_fisico/modelo_er.png)
   
 ### Dicionário de Dados
-...
+As informações sobre as tabelas e índices foram documentados na planilha [banco.xlsx](Dicionario/banco.xlsx)
 
 ### Scripts SQL
 Para este projeto foi utilizado o banco de dados [Azure SQL](https://azure.microsoft.com/pt-br/products/azure-sql/database) <br>
