@@ -36,4 +36,4 @@ Abaixo, segue os scripts SQL separados por tipo:
 
 
 ### Relatório Final
-...
+O relatório final está disponível no arquivo [Relatorio_BD2.pdf](relatorio/Relatorio_BD2.pdf).
