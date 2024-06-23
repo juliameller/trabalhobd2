@@ -90,32 +90,3 @@ SELECT
 	valor_total
 FROM total
 WHERE rank = 1;
-
---5. Qual a média de cada produto vendido desde o primeiro dia? 
-
-WITH vendas_diarias AS (
-    SELECT
-        pi.id_produto,
-        SUM(pi.quantidade) AS quantidade_vendida,
-        dt_pedido
-    FROM
-        pedido_item pi
-    INNER JOIN
-        pedido p ON pi.id_pedido = p.id_pedido
-    GROUP BY
-        pi.id_produto,
-        p.dt_pedido
-)
-SELECT
-    vd.id_produto,
-    pr.nome_produto,
-    AVG(vd.quantidade_vendida) AS media_vendas
-FROM
-    vendas_diarias vd
-INNER JOIN
-    produto pr ON vd.id_produto = pr.id_produto
-GROUP BY
-    vd.id_produto,
-    pr.nome_produto
-ORDER BY
-    vd.id_produto;
