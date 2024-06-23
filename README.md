@@ -30,7 +30,11 @@ Abaixo, segue os scripts SQL separados por tipo:
 + Pergunas/consultas [perguntas](scripts_sql/perguntas.sql)
 
 ### Código Fonte do CRUD
-...
+* Linguagem de Programação: Java jdk 21
+* Framework: Spring 3.3.0
+* Projeto: API backend
+* Biblioteca extras: jakarta, lombok, jpa, hibernate, jdbc-mssql (driver)
+
 
 ### Relatório Final
 ...
