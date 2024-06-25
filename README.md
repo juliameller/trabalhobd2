@@ -5,6 +5,7 @@ Daniela Cardoso - @DanielaMF <br>
 Emely Pickler - @emelypickler <br>
 Julia Meller – @juliameller <br>
 Thiago Larangeira - @thiagolarangeiras <br>
+Weslaine Santana - @weslainesantana <br>
 
 
 ### Modelo Físico
@@ -14,14 +15,14 @@ Arquivo fonte: [Modelo Fisico](https://dbdiagram.io/d/Atividade_BD-650a4ab602bd1
 ![image](https://github.com/juliameller/trabalhobd2/blob/main/modelo_fisico/modelo_er.png)
   
 ### Dicionário de Dados
-As informações sobre as tabelas e índices foram documentados na planilha [banco.xlsx](Dicionario/banco.xlsx)
+As informações sobre as tabelas e índices foram documentados na planilha [dicionario_dados.xlsx](Dicionario/dicionario_dados.xlsx)
 
 ### Scripts SQL
 Para este projeto foi utilizado o banco de dados [Azure SQL](https://azure.microsoft.com/pt-br/products/azure-sql/database) <br>
 
 Abaixo, segue os scripts SQL separados por tipo:
 + DDL [ddl.sql](scripts_sql/ddl.sql)
-+ Índices [indices.sql](scripts_sql/indices.sql)
++ Índices [indices.sql](scripts_sql/indice.sql)
 + DML [dml.sql](scripts_sql/dml.sql)
 + Triggers [triggers.sql](scripts_sql/triggers.sql)
 + Stored Procedures [stored_procedures.sql](scripts_sql/stored_procedures.sql)

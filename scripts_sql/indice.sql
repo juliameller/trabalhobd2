@@ -20,3 +20,13 @@ CREATE INDEX idx_pedido_item_id_pedido_id_produto ON pedido_item (id_pedido, id_
 CREATE INDEX idx_produzido_data ON produzido (id_produto, data) INCLUDE (quantidade);
 CREATE INDEX idx_produto ON produto (id_produto) INCLUDE (nome_produto);
 
+-- validar se os indices foram criados, ex: 
+
+SELECT 
+    name AS IndexName, 
+    object_name(object_id) AS TableName, 
+    type_desc AS IndexType 
+FROM 
+    sys.indexes 
+WHERE 
+    name IN ('idx_pedido_item_id_pedido_id_produto', 'idx_produzido_data', 'idx_produto');
