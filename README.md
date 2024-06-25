@@ -5,6 +5,7 @@ Daniela Cardoso - @DanielaMF <br>
 Emely Pickler - @emelypickler <br>
 Julia Meller – @juliameller <br>
 Thiago Larangeira - @thiagolarangeiras <br>
+Weslaine Santana - @weslainesantana <br>
 
 
 ### Modelo Físico
@@ -21,7 +22,7 @@ Para este projeto foi utilizado o banco de dados [Azure SQL](https://azure.micro
 
 Abaixo, segue os scripts SQL separados por tipo:
 + DDL [ddl.sql](scripts_sql/ddl.sql)
-+ Índices [indices.sql](scripts_sql/indices.sql)
++ Índices [indices.sql](scripts_sql/indice.sql)
 + DML [dml.sql](scripts_sql/dml.sql)
 + Triggers [triggers.sql](scripts_sql/triggers.sql)
 + Stored Procedures [stored_procedures.sql](scripts_sql/stored_procedures.sql)
